@@ -1,11 +1,13 @@
+
 import './App.css'
+import Header from './components/Header/Header'
 
 function App() {
  
   return (
-    <h1>
-    SHOPCART
-    </h1>
+    <>
+    <Header color='light' light={true} expand='md' container='md' fixed='top' />
+    </>
   )
 }
 
