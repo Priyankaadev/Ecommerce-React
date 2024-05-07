@@ -7,10 +7,10 @@
     margin-top: 2.5rem;
     font-size: 1rem;
 }
-.category-list{
+/* .category-list{
     margin-top: 3rem;
     gap: 1rem;
-}
+} */
 .category-item{
     border: 1px solid var(--pale-blue);
     box-shadow: 4px 5px 2px var(--mid-gray);
@@ -31,4 +31,11 @@
 .category-item:hover{
     box-shadow: 0px 0px;
   transition: box-shadow 0.1s linear 0s ;
+}
+.welcome-wrapper{
+    margin-top: 3rem;
+}
+#categoryList{
+    margin-top: 4rem;
+    gap: 3rem;
 }
