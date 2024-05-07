@@ -6,9 +6,9 @@ function Footer() {
             <div className="footer" style={{display:'flex' ,justifyContent:'space-around'}}>
                 <div>
                     <h4>Shop cart</h4>
-                    <p>Every product delivered to you</p>
+                    <p >Every product delivered to you</p>
                 </div>
-                <div >
+                <div>
                     <ul style={{display:'flex', flexDirection:'column'}} >
                        <span href="/" >About us</span>
                         <span href="/">Contact us</span>
