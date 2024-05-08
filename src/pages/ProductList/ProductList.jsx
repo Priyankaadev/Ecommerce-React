@@ -6,7 +6,7 @@ import FilterProducts from '../../components/FilterProduct/FilterProducts';
 
 function ProductList() {
     return (
-        <div className='container' >
+        <div className='container' style={{minHeight:'100vh', display:"flex", flexDirection:"column"}}>
             <div className='row'>
                 <h2 className='product-list-title text-center'>All Products</h2>
                 <div className='product-list-wrapper d-flex flex-row'>
