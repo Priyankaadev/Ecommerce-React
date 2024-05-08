@@ -19,7 +19,6 @@ function ProductList() {
 
     useEffect(() => {
         downloadProductList(query.get('category'));
-       
     }, [query.get('category')]);
 
     return (
@@ -35,6 +34,7 @@ function ProductList() {
                         {productList && productList.map(products => <ProductBox productImage={products.image}
                             name={products.title.substring(0, 12) + "...."}
                             price={products.price}
+                            id= {products.id}
                             key={products.id} />)}
                     </div>
                 </div>

@@ -1,13 +1,31 @@
+import { useParams } from 'react-router';
 import './ProductDetails.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { getProductDetails } from '../../apis/fakeStoreProdApis';
 
 function ProductDetails() {
+    const { id } = useParams();
+
+    const [product, setProduct] = useState(null)
+
+    async function downloadProduct(id) {
+        const response = await axios.get(getProductDetails(id))
+        setProduct(response.data)
+    }
+
+    useEffect(() => {
+        downloadProduct(id);
+    }, [])
+
     return (
-        <div className="container" style={{ minHeight: '100vh', display: "flex", flexDirection: "column" }}>
+        product && 
+            <div className="container" style={{ minHeight: '100vh', display: "flex", flexDirection: "column" }}>
             <div className="row">
                 <div className="product-details-wrapper d-flex flex-row">
                     <div className="product-img d-flex" >
                         <img
-                            src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ8HfYo7WbGACmSdpGYM4CbDgoz7LdpdINS0AN3pZ0_iMX7tRgZs9Ztyizo-yGfc5yCjt6ZVA78O7G4sCGOgo66Y3ZD7YPiV1F0gQkt--3lAY6RTnPB-h4y"
+                            src={product.image}
                             alt="product-image"
                             id="product-img" />
                     </div>
@@ -16,13 +34,13 @@ function ProductDetails() {
                         <div id="productDetails">
                             {/* <!-- Product details --> */}
                             <div class="product-name" id="product-name">
-                                bag
+                               {product.title}
                             </div>
-                            <div className="product-price fw-bold" id="product-price"> 5555</div>
+                            <div className="product-price fw-bold" id="product-price"> {product.price}</div>
                             <div className="product-description" >
-                                <div className="product-description-title fw-bold">Description</div>
+                                <div className="product-description-title fw-bold">{product.category}</div>
                                 <div className="product-description-data" id="product-description-data">
-                                    kjhghh
+                                    {product.description}
                                 </div>
                             </div>
 
@@ -36,7 +54,7 @@ function ProductDetails() {
                 </div>
             </div>
 
-        </div>
+        </div> 
 
 
     )
