@@ -2,7 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Footer() {
     return (
 
-        <div className="container-fluid" style={{position:'absolute', bottom:'0', backgroundColor:'lightgrey'}}  >
+        // <></>
+        <div className="container-fluid" style={{marginTop:'10rem', bottom:'0', backgroundColor:'lightgrey'}}  >
             <div className="footer" style={{display:'flex' ,justifyContent:'space-around'}}>
                 <div>
                     <h4>Shop cart</h4>

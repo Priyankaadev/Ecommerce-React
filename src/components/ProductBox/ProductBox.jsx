@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import './ProductBox.css'
 function ProductBox({ productImage, name, price }) {
     return (
-
-        
         <Link to='/products/2'
         href="productDetails.html" 
             className="product-item text-decoration-none d-inline-block">
