@@ -7,7 +7,7 @@ import { getAllCategories } from '../../apis/fakeStoreProdApis';
 function Home() {
     const [categories, setCategories] = useState(null)
     async function downloadCategories() {
-        const response = await axios.get(getAllCategories);
+        const response = await axios.get(getAllCategories());
         setCategories(response.data)
     }
 
@@ -23,7 +23,9 @@ function Home() {
 
                     <CategoryItem itemName='All products' />
 
-                    {categories && categories.map(category => <CategoryItem itemName={category} key={category} />)}
+                    {categories && categories.map(category => <CategoryItem itemName={category} 
+                    key={category} 
+                    filter={category} />)}
                 </div>
                 <div class="category-title text-center">
                     Select a Category to Start Shopping
