@@ -1,6 +1,5 @@
 import ProductBox from '../../components/ProductBox/ProductBox';
 import './ProductList.css';
-import ProductImage from '../../assets/p1.jpg'
 import FilterProducts from '../../components/FilterProduct/FilterProducts';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -21,7 +20,7 @@ function ProductList() {
     useEffect(() => {
         downloadProductList(query.get('category'));
        
-    }, []);
+    }, [query.get('category')]);
 
     return (
         <div className='container' style={{ minHeight: '100vh', display: "flex", flexDirection: "column" }}>

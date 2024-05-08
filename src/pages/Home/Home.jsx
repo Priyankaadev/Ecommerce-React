@@ -1,20 +1,10 @@
-import axios from 'axios';
 import CategoryItem from '../../components/CategoryItem/CategoryItem';
+import useCategory from '../../hooks/useCategory';
 import './Home.css'
-import { useEffect, useState } from 'react';
-import { getAllCategories } from '../../apis/fakeStoreProdApis';
 
 function Home() {
-    const [categories, setCategories] = useState(null)
-    async function downloadCategories() {
-        const response = await axios.get(getAllCategories());
-        setCategories(response.data)
-    }
-
-    useEffect(() => {
-        downloadCategories();
-    }, [])
-
+    const [categories] = useCategory()
+    
     return (
         <div class="container welcome-wrapper" style={{ minHeight: '100vh', display: "flex", flexDirection: "column" }}>
             <div class="row">
