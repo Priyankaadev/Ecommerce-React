@@ -11,6 +11,9 @@ export function getAllProductsByCategory(category){
 export function getProductDetails(id){
     return `${import.meta.env.VITE_FAKE_STORE_URL}/products/${id}`
 } 
-export function signup(id){
+export function signup(){
     return `${import.meta.env.VITE_FAKE_STORE_URL}/users`
+} 
+export function signin(){
+    return `${import.meta.env.VITE_FAKE_STORE_URL}/auth/login`
 } 

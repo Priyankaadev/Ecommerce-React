@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 
 function Auth({ onSubmit , resetForm}) {
 
@@ -17,9 +17,10 @@ function Auth({ onSubmit , resetForm}) {
         setFormDetails({ ...formDetails, isLoading: true })
         onSubmit(formDetails)
     }
-    useEffect(()=>{
+
+    function onResetForm(){
         setFormDetails({ email: '', password: '', username: '', isLoading: false })
-    }, [resetForm])
+    }
 
     return (
         <>
