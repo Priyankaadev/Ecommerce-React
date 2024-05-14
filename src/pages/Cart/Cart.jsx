@@ -1,13 +1,24 @@
+import { useContext, useEffect } from 'react';
 import OrderDetailsProduct from '../../components/OrderDetailsProduct/OrderDetailsProduct';
 import './Cart.css';
 import { useParams } from 'react-router';
-import useCart from '../../hooks/useCart';
+import CartContext from '../../context/CartContext'
 
 
 function Cart() {
-    const { userId } = useParams();
-    const [cart, setCart] = useCart(userId)
 
+    const {cart} = useContext(CartContext);
+
+    async function downloadCartProducts(cart){
+        if(!cart || !cart.products) return;
+        const productsPromise = cart.products.map(product => axios.get(getProduct(product.productId)));
+        const productPromiseResponse = await axios.all(productsPromise)
+        console.log(productPromiseResponse);
+    }
+
+    useEffect(()=>{
+      downloadCartProducts(cart)
+    },[cart])
 
     return (
         <div className="container" style={{ minHeight: '100vh', display: "flex", flexDirection: "column" }}>
