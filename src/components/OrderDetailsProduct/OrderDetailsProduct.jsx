@@ -1,7 +1,8 @@
-function OrderDetailsProduct([image, title , price, quantity]) {
+function OrderDetailsProduct([image, title , price, quantity, onRemove]) {
     
     const quantityAvailable=[1,2,3,4,5,6,7,8,9,10]
     
+  
     return (
         <div className="order-details-product d-flex flex-row">
             <div className="order-details-product-img d-flex">
