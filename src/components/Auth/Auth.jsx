@@ -3,14 +3,14 @@ import {  useState } from "react"
 function Auth({ onSubmit , resetForm}) {
 
     const [formDetails, setFormDetails] = useState({ email: '', password: '', username: '', isLoading: false })
-    function updateEmail(updateEmail) {
-        setFormDetails({ ...formDetails, email: updateEmail })
+    function updateEmail(updatedEmail) {
+        setFormDetails({ ...formDetails, email: updatedEmail })
     }
-    function updatePassword(updatePassword) {
-        setFormDetails({ ...formDetails, password: updatePassword })
+    function updatePassword(updatedPassword) {
+        setFormDetails({ ...formDetails, password: updatedPassword })
     }
-    function updateUsername(updateUsername) {
-        setFormDetails({ ...formDetails, username: updateUsername })
+    function updateUsername(updatedUsername) {
+        setFormDetails({ ...formDetails, username: updatedUsername })
     }
 
     function onFormSubmit() {

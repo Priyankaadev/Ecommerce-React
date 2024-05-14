@@ -7,12 +7,12 @@ import { CookiesProvider } from 'react-cookie';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <CookiesProvider defaultSetCookies={{path:'/'}}>
-      <App />
-    </CookiesProvider>
 
-  </BrowserRouter>
+    <BrowserRouter>
+      <CookiesProvider defaultSetCookies={{ path: '/' }}>
+        <App />
+      </CookiesProvider>
+    </BrowserRouter>
+
 )

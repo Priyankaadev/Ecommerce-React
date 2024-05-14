@@ -1,17 +1,25 @@
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import './ProductDetails.css'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { getProductDetails } from '../../apis/fakeStoreProdApis';
+import CartContext from '../../context/CartContext';
 
 function ProductDetails() {
     const { id } = useParams();
-
+    const navigate = useNavigate();
     const [product, setProduct] = useState(null)
 
+    const {cart, setCart} = useContext(CartContext)
     async function downloadProduct(id) {
         const response = await axios.get(getProductDetails(id))
         setProduct(response.data)
+    }
+    async function onAddingProduct(){
+     if(!user) return;
+    //  const response = await axios.put
+        setCart({...cart, products:[...cart.products, id ]})
+        navigate(`/cart/${user.id}`);
     }
 
     useEffect(() => {
@@ -33,7 +41,7 @@ function ProductDetails() {
                     <div className="product-details-box d-flex flex-column">
                         <div id="productDetails">
                             {/* <!-- Product details --> */}
-                            <div class="product-name" id="product-name">
+                            <div className="product-name" id="product-name">
                                {product.title}
                             </div>
                             <div className="product-price fw-bold" id="product-price"> {product.price}</div>
@@ -47,7 +55,8 @@ function ProductDetails() {
 
                         </div>
 
-                        <div className="product-details-action btn btn-primary text-deccoration-none">Add to cart</div>
+                        <div 
+                        onClick={onAddingProduct} className="product-details-action btn btn-primary text-deccoration-none">Add to cart</div>
                         <a href="cart.html" id="goToCartBtn"
                             className="product-details-action btn btn-warning text-decoration-none">Go to cart</a>
                     </div>
