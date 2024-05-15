@@ -28,7 +28,9 @@ function Header(props) {
   const { user, setUser } = useContext(UserContext)
   const { cart, setCart } = useContext(CartContext)
 
+  
   const toggle = () => setIsOpen(!isOpen);
+  
   function logout() {
     removeToken('jwt-token', { httpOnly: true });
     axios.get(`${import.meta.env.VITE_FAKE_STORE_URL}/logout`, { withCredentials: true });

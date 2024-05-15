@@ -8,7 +8,6 @@ import axios from 'axios'
 import { useCookies } from 'react-cookie'
 import { jwtDecode } from 'jwt-decode'
 import CartContext from './context/CartContext'
-import useCart from './hooks/useCart'
 import { fetchUserCart } from './helpers/fetchUserCartHelper'
 
 function App() {
@@ -19,16 +18,17 @@ function App() {
 
   function accessToken() {
     const res = axios.get(`${import.meta.env.VITE_FAKE_STORE_URL}/accesstoken`, { withCredentials: true })
+    
     setToken('jwt-token', res.data.token, { httpOnly: true })
     const tokenDetails = jwtDecode(res.data.token);
-    console.log(tokenDetails);
+   
     setUser({ username: tokenDetails.user, id: tokenDetails.id })
 
   }
 
   async function load() {
     if(!user){
-      await accessToken();
+    await accessToken();
     }
    if(user){
     await fetchUserCart(user.id, setCart)

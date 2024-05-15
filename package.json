@@ -19,7 +19,8 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.23.0",
     "react-router-dom": "^6.23.1",
-    "reactstrap": "^9.2.2"
+    "reactstrap": "^9.2.2",
+    "vercel": "^34.1.14"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

@@ -8,13 +8,13 @@ import { getAllProducts, getAllProductsByCategory } from '../../apis/fakeStorePr
 
 
 function ProductList() {
-    const [productList, getProductList] = useState(null);
-   const [query, setQuery] = useSearchParams();
+    const [productList, setProductList] = useState(null);
+   const [query] = useSearchParams();
    
     async function downloadProductList(category) {
         const downloadUrl = category ? getAllProductsByCategory(category) : getAllProducts();
         const response = await axios.get(downloadUrl)
-        getProductList(response.data)
+        setProductList(response.data)
     }
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function ProductList() {
                         {productList && productList.map(products => <ProductBox productImage={products.image}
                             name={products.title.substring(0, 12) + "...."}
                             price={products.price}
-                            id= {products.id}
+                            productId= {products.id}
                             key={products.id} />)}
                     </div>
                 </div>

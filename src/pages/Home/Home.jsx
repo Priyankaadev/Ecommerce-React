@@ -8,10 +8,11 @@ import UserContext from '../../context/UserContext';
 function Home() {
     const [categories] = useCategory();
     const {user} = useContext(UserContext)
-    const {cart} = useCart(user ? user.id: undefined)
+    const [cart] = useCart(user ? user.id: undefined)
     
     useEffect(()=>{
     }, [user])
+    
     return (
         <div className="container welcome-wrapper" style={{ minHeight: '100vh', display: "flex", flexDirection: "column" }}>
             <div className="row">

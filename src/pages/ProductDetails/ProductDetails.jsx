@@ -59,8 +59,7 @@ function ProductDetails() {
 
                         </div>
 
-                        <div 
-                        onClick={addProductToCart} className="product-details-action btn btn-primary text-deccoration-none">Add to cart</div>
+                        <div  onClick={addProductToCart} className="product-details-action btn btn-primary text-deccoration-none">Add to cart</div>
                         <a href="cart.html" id="goToCartBtn"
                             className="product-details-action btn btn-warning text-decoration-none">Go to cart</a>
                     </div>

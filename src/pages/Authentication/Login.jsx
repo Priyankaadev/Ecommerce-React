@@ -14,7 +14,8 @@ function Login() {
     const navigator = useNavigate();
     const [token, setToken] = useCookies(['jwt-token'])
     const authRef = useRef(null);
-    const {user, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
+    
     async function onAuthFormSubmit(formDetails) {
         try {
             const response = await axios.post(signin(), {
@@ -24,7 +25,7 @@ function Login() {
             }, {withCredentials:true});           
             const tokenDetails = jwtDecode(response.data.token)
             setUser({username: tokenDetails.user, id:tokenDetails.id})
-            setToken('jwt-token', response.data.token) ;    
+            setToken('jwt-token', response.data.token, {httpOnly:true}) ;    
             navigator("/")
         } catch (error) {
             authRef.current.resetFormData();
@@ -44,7 +45,8 @@ function Login() {
                 <div className="signup-btn text-center " id="showSignupbtn">
                     <Link to='/signup'>
                         Don't have an account? SignUp here
-                    </Link></div>
+                    </Link>
+                    </div>
             </div>
         </div>
     )

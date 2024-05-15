@@ -6,12 +6,12 @@ import { signup } from '../../apis/fakeStoreProdApis';
 import { useState } from 'react';
 
 
+
 function Signup() {
 
     const navigate = useNavigate();
-    const [resetSignupForm, setResetSignupForm] = useState(false)
-
-    async function onAuthFormSubmit(authArguments) {
+   
+    async function onAuthFormSubmit(authArguments,resetForm) {
         try {
             await axios.post(signup(), {
                 username: authArguments.username,
@@ -20,9 +20,8 @@ function Signup() {
             });
             navigate('/signin')
         } catch (error) {
-            console.log(error);
-         
-            setResetSignupForm(true)
+            console.log(error)
+      resetForm()
         }
     }
 
@@ -37,7 +36,7 @@ function Signup() {
                 <h4 className="text-center">SignUp</h4>
                 <Auth
                     onSubmit={onAuthFormSubmit}
-                    resetForm={resetSignupForm}
+                 
                 />
                 <div className="signup-btn text-center " id="showSignupbtn"><Link to='/signin'>Already have an account? SignIn here</Link></div>
             </div>
